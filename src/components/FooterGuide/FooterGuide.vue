@@ -1,24 +1,27 @@
 <template>
   <footer class="footer_guide border-1px">
-    <a href="javascript:;" class="guide_item on">
+    <a href="javascript:;" class="guide_item" 
+    :class="{on:'/msite'===$route.path}" 
+    @click="goTo('/msite')"
+    >
       <span class="item_icon">
         <i class="iconfont icon-waimai"></i>
       </span>
       <span>外卖</span>
     </a>
-    <a href="javascript:;" class="guide_item">
+    <a href="javascript:;" class="guide_item" :class="{on:'/search'===$route.path}"  @click="goTo('/search')">
       <span class="item_icon">
         <i class="iconfont icon-search"></i>
       </span>
       <span>搜索</span>
     </a>
-    <a href="javascript:;" class="guide_item">
+    <a href="javascript:;" class="guide_item" :class="{on:'/order'===$route.path}"  @click="goTo('/order')">
       <span class="item_icon">
         <i class="iconfont icon-dingdan"></i>
       </span>
       <span>订单</span>
     </a>
-    <a href="javascript:;" class="guide_item">
+    <a href="javascript:;" class="guide_item"  :class="{on:'/profile'===$route.path}"  @click="goTo('/profile')">
       <span class="item_icon">
         <i class="iconfont icon-geren"></i>
       </span>
@@ -27,7 +30,17 @@
   </footer>
 </template>
 <script>
-export default {};
+export default {
+  //方法
+  methods: {
+    //设置路径
+    goTo(path){
+      //编程式的路由
+      this.$router.replace(path)//没有回退
+      //this.$router.push()//回退
+    }
+  }
+}
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 @import '../../common/stylus/mixins.styl'

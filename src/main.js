@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 // 注册路由器
 import router from './router'
+//定义一个全局组件
+import Header from './components/Header/Header.vue'
+Vue.component('Header',Header)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
